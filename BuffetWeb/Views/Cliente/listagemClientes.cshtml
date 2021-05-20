@@ -1,0 +1,43 @@
+@using BuffetWeb.ViewModels
+@model BuffetWeb.ViewModels.listagemClienteViewModels
+
+@{
+    ViewData["Title"] = "Listagem";
+}
+
+<h2>Listagem</h2>
+
+<a href="/Cliente/adicionarCliente">Adicionar</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Inserido</th>
+        <th>Ultima Modificação</th>
+        <th>Tipo Cliente</th>
+        <th>CPF</th>
+        <th>CNPJ</th>
+        <th>Data de Nasimento</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (Cliente cliente in @Model.Clientes) {
+        <tr>
+            <td>@cliente.Id</td>
+            <td>@cliente.Nome</td>
+            <td>@cliente.Email</td>
+            <td>@cliente.UltimaMod</td>
+            <td>@cliente.Tipoclliente</td>
+            <td>@cliente.Tipoclliente</td>
+            <td>@cliente.Datanascimento</td>
+            <td>
+                <a href="/Cliente/editarCliente/@cliente.Id">Editar</a>
+                <a href="/Cliente/removerCliente/@cliente.Id">Remover</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
